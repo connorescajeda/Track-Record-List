@@ -63,21 +63,34 @@ class _TrackListState extends State<TrackList> {
             ),
           ),
           actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text('Cancel'),
-            ),
-            TextButton(
-              key: const Key("OKButton"),
-              onPressed: () {
-                setState(() {
-                  _handleTrackItem(eventController.text, markController.text,
-                      yearController.text, meetController.text);
-                  Navigator.pop(context);
-                });
-              },
-              child: Text('Send'),
-            ),
+            ElevatedButton(
+                key: Key("cancel"),
+                onPressed: () => Navigator.pop(context),
+                child: Text("Cancel"),
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                )))),
+            ElevatedButton(
+                key: Key("send"),
+                onPressed: () {
+                  setState(() {
+                    _handleTrackItem(eventController.text, markController.text,
+                        yearController.text, meetController.text);
+                    Navigator.pop(context);
+                  });
+                },
+                child: Text("Send"),
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                )))),
+
+            // TextButton(
+            //   key: const Key("OKButton"),
+
+            //   child: Text('Send'),
+            // ),
           ],
         );
       },

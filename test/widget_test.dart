@@ -144,7 +144,7 @@ void main() {
     await tester.pump();
     expect(find.text("SAU"), findsOneWidget);
 
-    await tester.tap(find.byKey(const Key("OKButton")));
+    await tester.tap(find.byKey(const Key("send")));
     await tester.pump();
 
     final textFinderEvent = find.byType(EventItem);
